@@ -46,7 +46,14 @@
                                     {{-- <a href="/dashboard/posts/{{ $employee->id }}" class="btn bg-info text-light"><i
                                             class="far fa-eye"></i></a> --}}
                                     <a href="#" class="btn bg-warning text-light"><i class="far fa-edit"></i></a>
-                                    <a href="#" class="btn bg-danger text-light"><i class="fas fa-times"></i></a>
+                                    <form action="/employees/{{ $employee->id }}" method="POST" class="d-inline">
+                                        @method('delete')
+                                        @csrf
+                                        <button class="btn bg-danger text-light"
+                                            onclick="return confirm('are you sure?')"><i
+                                                class="fas fa-times"></i></button>
+                                    </form>
+                                    {{-- <a href="#" class="btn bg-danger text-light"><i class="fas fa-times"></i></a> --}}
                                 </td>
                             </tr>
                         @endforeach
