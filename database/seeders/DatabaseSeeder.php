@@ -20,10 +20,12 @@ class DatabaseSeeder extends Seeder
 
         Company::create([
             'name' => 'Transisi Indonesia',
+            'image' => 'company/transisi.png'
         ]);
 
         Company::create([
             'name' => 'Amikom',
+            'image' => 'company/amikom.png'
         ]);
 
         Employee::factory(15)->create();
