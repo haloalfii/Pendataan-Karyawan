@@ -16,10 +16,18 @@
 
     <!-- Topbar Navbar -->
     <ul class="navbar-nav ml-auto">
-        <li>
-            <a href="/login" class="btn nav-link text-light" style="background-color: #4e73df"><i
-                    class="fas fa-sign-in-alt"></i> Login</a>
-        </li>
+        @auth
+            <li>
+                <div class="row">
+                    <form action="/logout" method="POST">
+                        @csrf
+                        <button type="submit" class="btn nav-link text-light" style="background-color: #4e73df"><i
+                                class="fas fa-sign-in-alt"></i> Logout</button>
+                    </form>
+                </div>
+
+            </li>
+        @endauth
         <div class="topbar-divider d-none d-sm-block"></div>
     </ul>
 </nav>

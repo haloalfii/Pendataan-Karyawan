@@ -30,8 +30,8 @@ class DatabaseSeeder extends Seeder
 
         Employee::factory(15)->create();
 
-        Admin::create([
-            'name' => 'Alfian Luthfi',
+        User::create([
+            'name' => 'Admin',
             'email' => 'admin@transisi.id',
             'password' => bcrypt('transisi')
         ]);

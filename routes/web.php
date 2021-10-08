@@ -6,6 +6,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\CompanyController;
 use App\Http\Controllers\EmployeeController;
+use Illuminate\Support\Facades\Log;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,8 +19,11 @@ use App\Http\Controllers\EmployeeController;
 |
 */
 
-Route::get('/', [HomeController::class, 'ShowDashboard']);
+Route::get('/', [LoginController::class, 'index']);
+Route::get('/dashboard', [HomeController::class, 'ShowDashboard']);
 Route::get('/companies', [CompanyController::class, 'index']);
 Route::get('/employees', [EmployeeController::class, 'index']);
 
-Route::get('/login', [LoginController::class, 'index']);
+Route::get('/login', [LoginController::class, 'index'])->middleware('guest');
+Route::post('/login', [LoginController::class, 'authenticate']);
+Route::post('/logout', [LoginController::class, 'logout']);

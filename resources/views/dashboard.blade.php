@@ -1,5 +1,9 @@
 @extends('layouts.main')
 
 @section('content')
-    <h1>Halaman Home</h1>
+    @auth
+        <h1>Welcome, {{ auth()->user()->name }}</h1>
+    @else
+        <h1>Halaman Home</h1>
+    @endauth
 @endsection
