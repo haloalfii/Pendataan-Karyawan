@@ -12,6 +12,11 @@
         <div class="card-header py-3">
             <h6 class="m-0 font-weight-bold text-primary">Data {{ $title }}</h6>
         </div>
+        <div class="card-header py-3">
+            <a class="btn btn-success" href="#">
+                <i class="fa fa-plus fa-fw"></i> Add Company
+            </a>
+        </div>
         <div class="card-body">
             <div class="table-responsive">
                 <table class="table table-bordered" id="" width="100%" cellspacing="0">
@@ -30,8 +35,8 @@
                                 <td>{{ $company->name }}</td>
                                 <td>{{ $company->img }}</td>
                                 <td>
-                                    <a href="/dashboard/posts/{{ $company->id }}" class="btn bg-info text-light"><i
-                                            class="far fa-eye"></i></a>
+                                    {{-- <a href="/dashboard/posts/{{ $company->id }}" class="btn bg-info text-light"><i
+                                            class="far fa-eye"></i></a> --}}
                                     <a href="#" class="btn bg-warning text-light"><i class="far fa-edit"></i></a>
                                     <a href="#" class="btn bg-danger text-light"><i class="fas fa-times"></i></a>
                                 </td>
