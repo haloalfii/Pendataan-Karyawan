@@ -26,7 +26,9 @@ Route::get('/companies', [CompanyController::class, 'index']);
 Route::resource('/companies', CompanyController::class)->middleware('auth');
 
 Route::get('/employees', [EmployeeController::class, 'index']);
+Route::get('/employees/cetak_pdf', [EmployeeController::class, 'cetak_pdf']);
 Route::get('/employees/detail', [EmployeeController::class, 'proses']);
+Route::get('/employees/detail/cetak_pdf', [EmployeeController::class, 'cetak_pdf_per_company']);
 Route::resource('/employees', EmployeeController::class)->middleware('auth');
 
 Route::get('/login', [LoginController::class, 'index'])->middleware('guest');

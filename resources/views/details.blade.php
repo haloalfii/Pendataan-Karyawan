@@ -22,6 +22,9 @@
             <a class="btn btn-success mr-2" href="/employees/create">
                 <i class="fa fa-plus fa-fw"></i> Add Employee
             </a>
+            <a class="btn btn-success mr-2" href="/employees/detail/cetak_pdf?category_id={{ $id }}">
+                <i class="fa fa-plus fa-fw"></i> Download Data
+            </a>
             <div class="col-lg-2">
                 <form action="/employees/detail" method="get">
                     {{-- @csrf --}}
