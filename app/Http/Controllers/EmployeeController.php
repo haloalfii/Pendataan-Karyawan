@@ -6,6 +6,7 @@ use App\Models\Company;
 use App\Models\Employee;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Barryvdh\DomPDF\Facade as PDF;
 
 class EmployeeController extends Controller
 {
@@ -24,18 +25,36 @@ class EmployeeController extends Controller
         ]);
     }
 
+    public function cetak_pdf()
+    {
+        $data = Employee::all();
+        view()->share('employee', $data);
+        $pdf = PDF::loadview('tables', $data);
+        return $pdf->download('All Data.pdf');
+    }
+
     public function proses(Request $request)
     {
         $id = $request->input('company_id');
-        $company = Company::firstWhere('id', $id);
         $daftar = Employee::latest()->where('company_id', $id)->paginate(5)->appends(request()->query());
 
         return view('details', [
             "title" => 'Employee',
             "active" => 'employee',
+            "id" => $id,
             'companies' => Company::all(),
             "employees" => $daftar
         ]);
+    }
+
+    public function cetak_pdf_per_company(Request $request)
+    {
+        $id = request('category_id');
+        $data = Employee::where('company_id', $id)->get();
+        $name = Company::firstWhere('id', $id)->name;
+        view()->share('employee', $data);
+        $pdf = PDF::loadview('tables', $data);
+        return $pdf->download('Data Company ' . $name . '.pdf');
     }
 
     /**
