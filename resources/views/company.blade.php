@@ -2,42 +2,45 @@
 
 @section('content')
     <!-- Page Heading -->
-    <h1 class="h3 mb-2 text-gray-800">Tables</h1>
-    <p class="mb-4">DataTables is a third party plugin that is used to generate the demo table below.
+    <h1 class="h3 mb-2 text-gray-800">{{ $title }}</h1>
+    {{-- <p class="mb-4">DataTables is a third party plugin that is used to generate the demo table below.
         For more information about DataTables, please visit the <a target="_blank" href="https://datatables.net">official
-            DataTables documentation</a>.</p>
+            DataTables documentation</a>.</p> --}}
 
     <!-- DataTales Example -->
     <div class="card shadow mb-4">
         <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6>
+            <h6 class="m-0 font-weight-bold text-primary">Data {{ $title }}</h6>
         </div>
         <div class="card-body">
             <div class="table-responsive">
                 <table class="table table-bordered" id="" width="100%" cellspacing="0">
                     <thead>
                         <tr>
-                            <th>Name</th>
-                            <th>Position</th>
-                            <th>Office</th>
-                            <th>Age</th>
-                            <th>Start date</th>
-                            <th>Salary</th>
+                            <th>No</th>
+                            <th>Company Name</th>
+                            <th>Logo</th>
+                            <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>Tiger Nixon</td>
-                            <td>System Architect</td>
-                            <td>Edinburgh</td>
-                            <td>61</td>
-                            <td>2011/04/25</td>
-                            <td>$320,800</td>
-                        </tr>
+                        @foreach ($companies as $key => $company)
+                            <tr>
+                                <td>{{ $companies->firstItem() + $key }}</td>
+                                <td>{{ $company->name }}</td>
+                                <td>{{ $company->img }}</td>
+                                <td>
+                                    <a href="/dashboard/posts/{{ $company->id }}" class="btn bg-info text-light"><i
+                                            class="far fa-eye"></i></a>
+                                    <a href="#" class="btn bg-warning text-light"><i class="far fa-edit"></i></a>
+                                    <a href="#" class="btn bg-danger text-light"><i class="fas fa-times"></i></a>
+                                </td>
+                            </tr>
+                        @endforeach
                     </tbody>
                 </table>
+                {{ $companies->links() }}
             </div>
         </div>
     </div>
-
 @endsection

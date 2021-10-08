@@ -1,7 +1,11 @@
 <?php
 
+use App\Models\Employee;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\CompanyController;
+use App\Http\Controllers\EmployeeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,5 +19,7 @@ use App\Http\Controllers\HomeController;
 */
 
 Route::get('/', [HomeController::class, 'ShowDashboard']);
-Route::get('/companies', [HomeController::class, 'ShowCompany']);
-Route::get('/employees', [HomeController::class, 'ShowEmployee']);
+Route::get('/companies', [CompanyController::class, 'index']);
+Route::get('/employees', [EmployeeController::class, 'index']);
+
+Route::get('/login', [LoginController::class, 'index']);
