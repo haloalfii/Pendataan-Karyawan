@@ -17,3 +17,8 @@
 .form-registration input {
     border-radius: 0;
 }
+
+.img-size {
+  width: 75px;
+  height: 75px;
+}

@@ -42,9 +42,13 @@ class CompanyController extends Controller
      */
     public function store(Request $request)
     {
+        // return $request->file('image')->store('company');
         $validatedData = $request->validate([
             'name' => 'required|max:255',
+            'image' => 'image|file|max:2048|mimes:png|dimensions:min_width=100, min_height=100',
         ]);
+
+        $validatedData['image'] = $request->file('image')->store('company');
 
         Company::create($validatedData);
 
@@ -86,10 +90,15 @@ class CompanyController extends Controller
      */
     public function update(Request $request, Company $company)
     {
-        $validatedData = $request->validate([
+        $rules = [
             'name' => 'required|max:255',
-        ]);
+            'image' => 'image|file|max:2048|mimes:png|dimensions:min_width=100, min_height=100',
+        ];
 
+        $validatedData = $request->validate($rules);
+        if ($request->file('image')) {
+            $validatedData['image'] = $request->file('image')->store('company');
+        }
         Company::where('id', $company->id)->update($validatedData);
 
         return redirect('/companies')->with('success', 'Company Has ben Updated!');

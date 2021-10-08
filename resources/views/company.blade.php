@@ -39,7 +39,8 @@
                             <tr>
                                 <td>{{ $companies->firstItem() + $key }}</td>
                                 <td>{{ $company->name }}</td>
-                                <td>{{ $company->img }}</td>
+                                <td><img src="{{ asset('storage/' . $company->image) }}" class="rounded img-size" alt="">
+                                </td>
                                 <td>
                                     {{-- <a href="/dashboard/posts/{{ $company->id }}" class="btn bg-info text-light"><i
                                             class="far fa-eye"></i></a> --}}
