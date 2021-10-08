@@ -27,17 +27,17 @@
     <!-- Nav Item - Dashboard -->
     <li class="nav-item {{ $active === 'dashboard' ? 'active' : '' }}" style="margin-bottom: -20px;">
         <a class="nav-link" href="/dashboard">
-            <i class="fas fa-fw fa-tachometer-alt"></i>
+            <i class="fas fa-fw fa-columns"></i>
             <span>Dashboard</span></a>
     </li>
     <li class="nav-item {{ $active === 'company' ? 'active' : '' }}" style="margin-bottom: -20px;">
         <a class="nav-link" href="/companies">
-            <i class="fas fa-fw fa-tachometer-alt"></i>
+            <i class="fas fa-fw fa-building"></i>
             <span>Companies</span></a>
     </li>
     <li class="nav-item {{ $active === 'employee' ? 'active' : '' }}">
         <a class=" nav-link" href="/employees">
-            <i class="fas fa-fw fa-tachometer-alt"></i>
+            <i class="fas fa-fw fa-user-friends"></i>
             <span>Employees</span></a>
     </li>
 
