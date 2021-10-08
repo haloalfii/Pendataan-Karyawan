@@ -1,12 +1,11 @@
-@extends('employee.layout-employee.main')
+@extends('company.layout-company.main')
 
 @section('content')
     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-        <h1 class="h2">Add New Employee</h1>
+        <h1 class="h2">Add New company</h1>
     </div>
-
     <div class="col-lg-5">
-        <form method="POST" action="/employees" class="mb-5">
+        <form method="POST" action="/companies" class="mb-5">
             @csrf
             <div class="mb-3">
                 <label for="name" class="form-label">Name</label>
@@ -23,21 +22,7 @@
                 @enderror
             </div>
 
-            <div class="mb-3">
-                <label for="company" class="form-label">Company</label>
-                <select class="form-select form-control" name="company_id">
-                    @foreach ($companies as $company)
-                        @if (old('company_id') == $company->id)
-                            <option value="{{ $company->id }}" selected>{{ $company->name }}</option>
-                        @else
-                            <option value="{{ $company->id }}">{{ $company->name }}</option>
-                        @endif
-
-                    @endforeach
-                </select>
-            </div>
-
-            <div class="mb-3">
+            {{-- <div class="mb-3">
                 <label for="email" class="form-label">Email</label>
                 <input type="email"
                     class="form-control @error('email')
@@ -49,8 +34,8 @@
                         {{ $message }}
                     </div>
                 @enderror
-            </div>
-            <button type="submit" class="btn btn-primary">Add Employee</button>
+            </div> --}}
+            <button type="submit" class="btn btn-primary">Add Company</button>
         </form>
     </div>
 @endsection

@@ -20,12 +20,10 @@ class DatabaseSeeder extends Seeder
 
         Company::create([
             'name' => 'Transisi Indonesia',
-            'slug' => 'transisi-indonesia'
         ]);
 
         Company::create([
             'name' => 'Amikom',
-            'slug' => 'amikom'
         ]);
 
         Employee::factory(15)->create();

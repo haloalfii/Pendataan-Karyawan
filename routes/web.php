@@ -21,7 +21,9 @@ use Illuminate\Support\Facades\Log;
 
 Route::get('/', [LoginController::class, 'index']);
 Route::get('/dashboard', [HomeController::class, 'ShowDashboard']);
+
 Route::get('/companies', [CompanyController::class, 'index']);
+Route::resource('/companies', CompanyController::class)->middleware('auth');
 
 Route::get('/employees', [EmployeeController::class, 'index']);
 Route::resource('/employees', EmployeeController::class)->middleware('auth');
