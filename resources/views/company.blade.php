@@ -43,7 +43,8 @@
                                 <td>
                                     {{-- <a href="/dashboard/posts/{{ $company->id }}" class="btn bg-info text-light"><i
                                             class="far fa-eye"></i></a> --}}
-                                    <a href="#" class="btn bg-warning text-light"><i class="far fa-edit"></i></a>
+                                    <a href="/companies/{{ $company->id }}/edit" class="btn bg-warning text-light"><i
+                                            class="far fa-edit"></i></a>
                                     <form action="/companies/{{ $company->id }}" method="POST" class="d-inline">
                                         @method('delete')
                                         @csrf

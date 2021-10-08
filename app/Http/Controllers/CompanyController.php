@@ -70,7 +70,11 @@ class CompanyController extends Controller
      */
     public function edit(Company $company)
     {
-        //
+        return view('company.edit', [
+            'title' => 'Edit Company',
+            'active' => 'components',
+            'companies' => $company
+        ]);
     }
 
     /**
@@ -82,7 +86,13 @@ class CompanyController extends Controller
      */
     public function update(Request $request, Company $company)
     {
-        //
+        $validatedData = $request->validate([
+            'name' => 'required|max:255',
+        ]);
+
+        Company::where('id', $company->id)->update($validatedData);
+
+        return redirect('/companies')->with('success', 'Company Has ben Updated!');
     }
 
     /**

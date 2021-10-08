@@ -75,7 +75,12 @@ class EmployeeController extends Controller
      */
     public function edit(Employee $employee)
     {
-        //
+        return view('employee.edit', [
+            'title' => 'Edit Employee',
+            'active' => 'components',
+            'employees' => $employee,
+            'companies' => Company::all()
+        ]);
     }
 
     /**
@@ -87,7 +92,20 @@ class EmployeeController extends Controller
      */
     public function update(Request $request, Employee $employee)
     {
-        //
+        $rules = [
+            'name' => 'required|max:255',
+            'company_id' => 'required',
+        ];
+
+        if ($request->email != $employee->email) {
+            $rules['email'] = 'required|unique:employees|email:dns';
+        }
+
+        $validatedData = $request->validate($rules);
+
+        Employee::where('id', $employee->id)->update($validatedData);
+
+        return redirect('/employees')->with('success', 'Employee Has ben Updated!');
     }
 
     /**
