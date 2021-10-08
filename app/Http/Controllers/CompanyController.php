@@ -16,7 +16,7 @@ class CompanyController extends Controller
     {
         return view('company', [
             "title" => 'Company',
-            "active" => 'components',
+            "active" => 'company',
             "companies" => Company::latest()->paginate(5)
         ]);
     }
@@ -30,7 +30,7 @@ class CompanyController extends Controller
     {
         return view('company.create', [
             'title' => 'Add Company',
-            'active' => 'components'
+            'active' => 'company'
         ]);
     }
 
@@ -76,7 +76,7 @@ class CompanyController extends Controller
     {
         return view('company.edit', [
             'title' => 'Edit Company',
-            'active' => 'components',
+            'active' => 'company',
             'companies' => $company
         ]);
     }

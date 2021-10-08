@@ -78,7 +78,7 @@
                         @endforeach
                     </tbody>
                 </table>
-                {{ $employees->appends(request()->input())->links() }}
+                {{ $employees->links() }}
             </div>
         </div>
     </div>

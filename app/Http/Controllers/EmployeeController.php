@@ -18,8 +18,23 @@ class EmployeeController extends Controller
     {
         return view('employee', [
             "title" => 'Employee',
-            "active" => 'components',
+            "active" => 'employee',
+            'companies' => Company::all(),
             "employees" => Employee::latest()->paginate(5)
+        ]);
+    }
+
+    public function proses(Request $request)
+    {
+        $id = $request->input('company_id');
+        $company = Company::firstWhere('id', $id);
+        $daftar = Employee::latest()->where('company_id', $id)->paginate(5)->appends(request()->query());
+
+        return view('details', [
+            "title" => 'Employee',
+            "active" => 'employee',
+            'companies' => Company::all(),
+            "employees" => $daftar
         ]);
     }
 
@@ -32,7 +47,7 @@ class EmployeeController extends Controller
     {
         return view('employee.create', [
             'title' => 'Add Employee',
-            'active' => 'components',
+            'active' => 'employee',
             'companies' => Company::all()
         ]);
     }
@@ -77,7 +92,7 @@ class EmployeeController extends Controller
     {
         return view('employee.edit', [
             'title' => 'Edit Employee',
-            'active' => 'components',
+            'active' => 'employee',
             'employees' => $employee,
             'companies' => Company::all()
         ]);

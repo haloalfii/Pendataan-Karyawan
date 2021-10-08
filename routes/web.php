@@ -26,6 +26,7 @@ Route::get('/companies', [CompanyController::class, 'index']);
 Route::resource('/companies', CompanyController::class)->middleware('auth');
 
 Route::get('/employees', [EmployeeController::class, 'index']);
+Route::get('/employees/detail', [EmployeeController::class, 'proses']);
 Route::resource('/employees', EmployeeController::class)->middleware('auth');
 
 Route::get('/login', [LoginController::class, 'index'])->middleware('guest');

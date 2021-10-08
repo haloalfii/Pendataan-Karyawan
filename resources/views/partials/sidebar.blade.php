@@ -12,7 +12,7 @@
                 align-items-center
                 justify-content-center
             "
-        href="/">
+        href="/dashboard">
         <div class="sidebar-brand-icon">
             <i class="fas fa-cog"></i>
         </div>
@@ -25,17 +25,27 @@
     <hr class="sidebar-divider my-0" />
 
     <!-- Nav Item - Dashboard -->
-    <li class="nav-item {{ $active === 'dashboard' ? 'active' : '' }}">
-        <a class="nav-link" href="/">
+    <li class="nav-item {{ $active === 'dashboard' ? 'active' : '' }}" style="margin-bottom: -20px;">
+        <a class="nav-link" href="/dashboard">
             <i class="fas fa-fw fa-tachometer-alt"></i>
             <span>Dashboard</span></a>
+    </li>
+    <li class="nav-item {{ $active === 'company' ? 'active' : '' }}" style="margin-bottom: -20px;">
+        <a class="nav-link" href="/companies">
+            <i class="fas fa-fw fa-tachometer-alt"></i>
+            <span>Companies</span></a>
+    </li>
+    <li class="nav-item {{ $active === 'employee' ? 'active' : '' }}">
+        <a class=" nav-link" href="/employees">
+            <i class="fas fa-fw fa-tachometer-alt"></i>
+            <span>Employees</span></a>
     </li>
 
     <!-- Divider -->
     <hr class="sidebar-divider" />
 
     <!-- Heading -->
-    <div class="sidebar-heading">Interface</div>
+    {{-- <div class="sidebar-heading">Interface</div>
 
     <!-- Nav Item - Pages Collapse Menu -->
     <li class="nav-item {{ $active === 'components' ? 'active' : '' }}">
@@ -57,6 +67,6 @@
     <!-- Sidebar Toggler (Sidebar) -->
     <div class="text-center d-none d-md-inline">
         <button class="rounded-circle border-0" id="sidebarToggle"></button>
-    </div>
+    </div> --}}
 
 </ul>
