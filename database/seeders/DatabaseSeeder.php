@@ -19,7 +19,7 @@ class DatabaseSeeder extends Seeder
     {
 
         Company::create([
-            'name' => 'Transisi Indonesia',
+            'name' => 'Transisi',
             'image' => 'company/transisi.png'
         ]);
 
