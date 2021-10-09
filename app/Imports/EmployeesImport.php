@@ -15,10 +15,14 @@ class EmployeesImport implements \Maatwebsite\Excel\Concerns\ToModel
      */
     public function model(array $row)
     {
-        return new Employee([
+        $data = [
             'name'     => $row[0],
             'email'    => $row[1],
             'company_id'    => Company::firstWhere('name', $row[2])->id,
-        ]);
+        ];
+
+        $insertData = new Employee($data);
+
+        return $insertData;
     }
 }
