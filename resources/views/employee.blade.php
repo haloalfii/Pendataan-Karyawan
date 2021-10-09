@@ -19,12 +19,17 @@
             <h6 class="m-0 font-weight-bold text-primary">Data {{ $title }}</h6>
         </div>
         <div class="card-header py-3 row">
-            <a class="btn btn-success mr-2" href="/employees/create">
-                <i class="fa fa-plus fa-fw"></i> Add Employee
-            </a>
-            <a class="btn btn-success mr-2" href="/employees/cetak_pdf">
-                <i class="fa fa-plus fa-fw"></i> Download Data
-            </a>
+            <div class="col-lg-2" style="margin-right: -90px">
+                <a class="btn btn-success" href="/employees/create">
+                    <i class="fa fa-plus fa-fw"></i> Add Employee
+                </a>
+            </div>
+            <div class="col-lg-2" style="margin-right: -90px">
+                <a class="btn btn-success" href="/employees/cetak_pdf">
+                    <i class="fa fa-plus fa-fw"></i> Download Data
+                </a>
+            </div>
+
             <div class="col-lg-2">
                 <form action="/employees/detail" method="get">
                     {{-- @csrf --}}
@@ -39,8 +44,19 @@
                         @endforeach
                     </select>
             </div>
-            <div class="col-lg-2">
+            <div class="col-lg-2" style="margin-right: -90px">
                 <button type="submit" class="btn btn-primary">Cari</button>
+                </form>
+            </div>
+            <div class="col-lg-2">
+                <form action="/" method="post" enctype="multipart/form-data">
+                    @csrf
+                    <input type="file" name="file" class="form-control" placeholder="Recipient's username"
+                        aria-label="Recipient's username" aria-describedby="button-addon2">
+            </div>
+            <div class="col-lg-2">
+                <button class="btn btn-primary" type="submit" id="button-addon2">Import</button>
+
                 </form>
             </div>
         </div>

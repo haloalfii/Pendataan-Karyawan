@@ -19,12 +19,18 @@
             <h6 class="m-0 font-weight-bold text-primary">Data {{ $title }}</h6>
         </div>
         <div class="card-header py-3 row">
-            <a class="btn btn-success mr-2" href="/employees/create">
-                <i class="fa fa-plus fa-fw"></i> Add Employee
-            </a>
-            <a class="btn btn-success mr-2" href="/employees/detail/cetak_pdf?category_id={{ $id }}">
-                <i class="fa fa-plus fa-fw"></i> Download Data
-            </a>
+            <div class="col-lg-2" style="margin-right: -90px">
+                <a class="btn btn-success mr-2" href="/employees/create">
+                    <i class="fa fa-plus fa-fw"></i> Add Employee
+                </a>
+
+            </div>
+            <div class="col-lg-2" style="margin-right: -90px">
+                <a class="btn btn-success mr-2" href="/employees/detail/cetak_pdf?category_id={{ $id }}">
+                    <i class="fa fa-plus fa-fw"></i> Download Data
+                </a>
+
+            </div>
             <div class="col-lg-2">
                 <form action="/employees/detail" method="get">
                     {{-- @csrf --}}

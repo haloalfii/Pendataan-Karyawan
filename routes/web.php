@@ -6,7 +6,9 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\CompanyController;
 use App\Http\Controllers\EmployeeController;
+use App\Imports\EmployeesImport;
 use Illuminate\Support\Facades\Log;
+use Maatwebsite\Excel\Facades\Excel;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,6 +28,10 @@ Route::get('/companies', [CompanyController::class, 'index']);
 Route::resource('/companies', CompanyController::class)->middleware('auth');
 
 Route::get('/employees', [EmployeeController::class, 'index']);
+Route::post('/', function () {
+    Maatwebsite\Excel\Facades\Excel::import(new EmployeesImport, request()->file('file'));
+    return back();
+});
 Route::get('/employees/cetak_pdf', [EmployeeController::class, 'cetak_pdf']);
 Route::get('/employees/detail', [EmployeeController::class, 'proses']);
 Route::get('/employees/detail/cetak_pdf', [EmployeeController::class, 'cetak_pdf_per_company']);
